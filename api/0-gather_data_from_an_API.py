@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Documentation for the checker"""
-import urllib.request
 import sys
+import urllib.request
 
 
 if __name__ == "__main__":
