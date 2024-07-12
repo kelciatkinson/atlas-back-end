@@ -16,4 +16,6 @@ if __name__ == "__main__":
     with urllib.request.urlopen(url + todo_url) as response:
         data = response.read()
     number_of_done_tasks = data.get('completed')
-    helpme = 0
+
+    print('Employee {} is done with tasks({}/20):'.format(
+        employee_name, number_of_done_tasks))
