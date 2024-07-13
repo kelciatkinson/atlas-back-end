@@ -32,8 +32,7 @@ if __name__ == "__main__":
     for task in completed_tasks:
         print("\t {}".format(task))
 
-
     csv_file = "{}.csv".format(employee_id)
     with open(csv_file, "w") as file:
         for task in completed_tasks:
-            file.write('"{}","{}","{}","{}"\n'.format(employee_id, name, completed, task))
+            file.write(f'"{employee_id}","{name}","{completed}","{task}"\n')
