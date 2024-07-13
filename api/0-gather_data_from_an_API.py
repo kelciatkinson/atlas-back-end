@@ -15,7 +15,7 @@ if __name__ == "__main__":
         data = response.read()
         data = json.loads(data)
         name = data["name"]
-    
+
     url = "todos?userId={}".format(employee_id)
     with urllib.request.urlopen(base_url + url) as response:
         count = 0
@@ -27,6 +27,6 @@ if __name__ == "__main__":
                 completed_tasks.append(task["title"])
                 count += 1
 
-    print("Employee {} is done with tasks({}/{}):".format(name, count, len(data)))
+    print(f"Employee {name} is done with tasks({count}/{len(data)}):")
     for task in completed_tasks:
         print("\t {}".format(task))
