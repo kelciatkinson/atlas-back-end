@@ -23,7 +23,6 @@ if __name__ == "__main__":
         data = response.read()
         data = json.loads(data)
         for task in data:
-            completed = task["completed"]
             if task["completed"]:
                 completed_tasks.append(task["title"])
                 count += 1
@@ -34,5 +33,6 @@ if __name__ == "__main__":
 
     csv_file = "{}.csv".format(employee_id)
     with open(csv_file, "w") as file:
-        for task in completed_tasks:
-            file.write(f'"{employee_id}","{name}","{completed}","{task}"\n')
+        for task in data:
+            file.write(f'"{employee_id}","{name}","{task["completed"]}","{task["title"]}"\n')
+            
