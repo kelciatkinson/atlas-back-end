@@ -34,5 +34,5 @@ if __name__ == "__main__":
     csv_file = "{}.csv".format(employee_id)
     with open(csv_file, "w") as file:
         for task in data:
-            file.write(f'"{employee_id}","{name}","{task["completed"]}","{task["title"]}"\n')
-            
+            file.write(f'"{employee_id}"',"{name}"' + \
+                       f',"{task["completed"]}","{task["title"]}"\n')
