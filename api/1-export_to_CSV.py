@@ -14,7 +14,7 @@ if __name__ == "__main__":
     with urllib.request.urlopen(base_url + url) as response:
         data = response.read()
         data = json.loads(data)
-        name = data["name"]
+        name = data["username"]
 
     url = "todos?userId={}".format(employee_id)
     with urllib.request.urlopen(base_url + url) as response:
@@ -23,6 +23,7 @@ if __name__ == "__main__":
         data = response.read()
         data = json.loads(data)
         for task in data:
+            completed = task["completed"]
             if task["completed"]:
                 completed_tasks.append(task["title"])
                 count += 1
@@ -30,3 +31,9 @@ if __name__ == "__main__":
     print(f"Employee {name} is done with tasks({count}/{len(data)}):")
     for task in completed_tasks:
         print("\t {}".format(task))
+
+
+    csv_file = "{}.csv".format(employee_id)
+    with open(csv_file, "w") as file:
+        for task in completed_tasks:
+            file.write('"{}","{}","{}","{}"\n'.format(employee_id, name, completed, task))
