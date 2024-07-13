@@ -34,12 +34,12 @@ if __name__ == "__main__":
         for task in completed_tasks:
             print("\t {}".format(task))
 
-    todo_all_employees[employee_id] = []
-    for task in data:
-        todo_all_employees[employee_id].append(
-        {"username": name,
-        "task": task["title"],
-        "completed": task["completed"]})
+        todo_all_employees[employee_id] = []
+        for task in data:
+            todo_all_employees[employee_id].append({
+                "username": name,
+                "task": task["title"],
+                "completed": task["completed"]})
 
     with open("todo_all_employees.json", "w") as file:
         json.dump(todo_all_employees, file)
